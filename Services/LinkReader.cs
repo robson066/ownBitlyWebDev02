@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using WebDev02_Homework.Interfaces;
 using WebDevHomework.Interfaces;
 using WebDevHomework.Models;
 using WebDevHomework.Repository;
@@ -7,9 +8,9 @@ namespace WebDevHomework.Services
 {
     public class LinkReader : ILinkReader
     {
-        private readonly LinkRepository _linkRepository;
+        private readonly ILinkRepository _linkRepository;
 
-        public LinkReader(LinkRepository linkRepository)
+        public LinkReader(ILinkRepository linkRepository)
         {
             _linkRepository = linkRepository;
         }

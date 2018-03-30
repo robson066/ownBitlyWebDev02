@@ -9,6 +9,8 @@ namespace WebDev02_Homework.Interfaces
         Link Get(int id);
         Link Create(Link link);
         Link Update(Link link);
-        void Delete(int id);   
+        void Delete(int id);  
+        string GetFullLink(string shortLink);
+        
     }
 }

@@ -22,5 +22,16 @@ namespace WebDevHomework.Services
         {
             return _hashId.Decode(hashedUrl).First();
         }
+
+        public int Adler32(string fullLink)
+        {
+            const int mod = 65521;
+            int a = 1, b = 0;
+            foreach (char c in fullLink) {
+                a = (a + c) % mod;
+                b = (b + a) % mod;
+            }
+            return  (b << 16) | a;
+        }  
     }
 }

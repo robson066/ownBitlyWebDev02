@@ -18,7 +18,7 @@ namespace WebDevHomework.Controllers
         }
 
         //GET api/links/{id}
-        [HttpGet("{id}")]
+        [HttpGet]
         public IActionResult Get(int id)
         {
             return Ok(_linkReader.Get(id));

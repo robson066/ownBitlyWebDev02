@@ -15,7 +15,6 @@ namespace WebDev02_Homework.Models
                Title = this.Title,
                FullUrl = this.FullUrl,
                ShortUrl = this.ShortUrl,
-
            };
 
            return link;

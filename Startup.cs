@@ -29,13 +29,15 @@ namespace WebDevHomework
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddDbContext<LinkDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("LinkDbConnection")));            
             services.AddSingleton<Hasher>();
-            services.AddTransient<ILinkReader, LinkReader>();
-            services.AddTransient<ILinkWriter, LinkWriter>();
             services.AddTransient<IHashDecoder, Decoder>();
             services.AddTransient<IHashEncoder, Encoder>();
+            services.AddTransient<ILinkRepository, LinkRepository>();            
+            services.AddTransient<ILinkReader, LinkReader>();
+            services.AddTransient<ILinkWriter, LinkWriter>();
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new Info{ Title = "OwnBitly API", Version = "v1" }));
-            services.AddDbContext<LinkDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("LinkDbConnection")));
+            services.AddMvcCore().AddApiExplorer();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,18 +47,16 @@ namespace WebDevHomework
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseStaticFiles();
             app.UseSwagger();            
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "OwnBitly API"));
-
-
-            app.UseStaticFiles();
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Link}/{action=Index}/{id?}");
-            });
+            app.UseMvc();
+            // app.UseMvc(routes =>
+            // {
+            //     routes.MapRoute(
+            //         name: "default",
+            //         template: "{controller=Link}/{action=Index}/{id?}");
+            // });
         }
     }
 }

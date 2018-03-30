@@ -12,9 +12,10 @@ namespace WebDevHomework.Controllers
             _linkReader = linkReader;
         }
 
-        [HttpGet("/{shortUrl}")]
+        [HttpGet("{shortUrl}")]
         public IActionResult RedirectToUrl(string shortUrl)
         {
+            if(shortUrl == "favicon.ico") return RedirectToPage("Index");
             var fullUrl = _linkReader.GetFullLink(shortUrl);
             var lowercaselink = fullUrl.ToLower();
             if(lowercaselink.Contains("http://") || lowercaselink.Contains("https://")){

@@ -10,10 +10,15 @@ namespace WebDevHomework.Services
         {
             _hasher = hasher;
         }
+
+        public int Adler32(string fullLink)
+        {
+            return _hasher.Adler32(fullLink);
+        }  
+
         public int Decode(string hashedUrl)
         {
             return _hasher.Decode(hashedUrl);
         }
     }
-
 }

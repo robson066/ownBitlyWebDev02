@@ -29,10 +29,13 @@ namespace WebDevHomework.Repository
 
         public Link Create(Link link)
         {
+            bool linkExists = _context.Links.Any(x=>x.FullUrl == link.FullUrl);
+            if(linkExists)
+            {
+                return link;
+            }
             var random = new Random();
-            link.Id = random.Next(100000, 1000000);
-            // no hash collision check
-            // can generate same hash for different links
+            link.Id = _hashDecoder.Adler32(link.FullUrl) + random.Next(1, 999999);
             link.ShortUrl = _hashEncoder.Encode(link.Id);
             _context.Links.Add(link);
             _context.SaveChanges();
