@@ -8,3 +8,13 @@ C:\Users\robert.kaczmarek\Desktop\Priv\Net Core Apps\WebDev02 Homework\obj\Debug
 C:\Users\robert.kaczmarek\Desktop\Priv\Net Core Apps\WebDev02 Homework\obj\Debug\netcoreapp2.0\WebDevHomework.AssemblyInfo.cs
 C:\Users\robert.kaczmarek\Desktop\Priv\Net Core Apps\WebDev02 Homework\obj\Debug\netcoreapp2.0\WebDevHomework.dll
 C:\Users\robert.kaczmarek\Desktop\Priv\Net Core Apps\WebDev02 Homework\obj\Debug\netcoreapp2.0\WebDevHomework.pdb
+C:\Users\Robert\Documents\NetCore Apps\ownBitlyWebDev02\bin\Debug\netcoreapp2.0\WebDevHomework.deps.json
+C:\Users\Robert\Documents\NetCore Apps\ownBitlyWebDev02\bin\Debug\netcoreapp2.0\WebDevHomework.runtimeconfig.json
+C:\Users\Robert\Documents\NetCore Apps\ownBitlyWebDev02\bin\Debug\netcoreapp2.0\WebDevHomework.runtimeconfig.dev.json
+C:\Users\Robert\Documents\NetCore Apps\ownBitlyWebDev02\bin\Debug\netcoreapp2.0\WebDevHomework.dll
+C:\Users\Robert\Documents\NetCore Apps\ownBitlyWebDev02\bin\Debug\netcoreapp2.0\WebDevHomework.pdb
+C:\Users\Robert\Documents\NetCore Apps\ownBitlyWebDev02\obj\Debug\netcoreapp2.0\WebDevHomework.csproj.CoreCompileInputs.cache
+C:\Users\Robert\Documents\NetCore Apps\ownBitlyWebDev02\obj\Debug\netcoreapp2.0\WebDevHomework.AssemblyInfoInputs.cache
+C:\Users\Robert\Documents\NetCore Apps\ownBitlyWebDev02\obj\Debug\netcoreapp2.0\WebDevHomework.AssemblyInfo.cs
+C:\Users\Robert\Documents\NetCore Apps\ownBitlyWebDev02\obj\Debug\netcoreapp2.0\WebDevHomework.dll
+C:\Users\Robert\Documents\NetCore Apps\ownBitlyWebDev02\obj\Debug\netcoreapp2.0\WebDevHomework.pdb

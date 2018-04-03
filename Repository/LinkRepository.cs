@@ -73,8 +73,8 @@ namespace WebDevHomework.Repository
 
             var paginatedLink = linksFilteredByTitle
                 .OrderBy(x => x.Id)
-                .Skip(skip)
-                .Take(20);
+                .Skip(skip);
+                //.Take(20); // reserved for LinkAPI
 
             return (paginatedLink, linksCount);
         }

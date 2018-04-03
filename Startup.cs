@@ -4,11 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Pioneer.Pagination;
 using Swashbuckle.AspNetCore.Swagger;
 using WebDev02_Homework;
 using WebDev02_Homework.Interfaces;
@@ -40,7 +38,6 @@ namespace WebDevHomework
             services.AddTransient<ILinkWriter, LinkWriter>();
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new Info{ Title = "OwnBitly API", Version = "v1" }));
             services.AddMvcCore().AddApiExplorer();
-            services.AddTransient<IPaginatedMetaService, PaginatedMetaService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,7 +50,6 @@ namespace WebDevHomework
             app.UseStaticFiles();
             app.UseSwagger();            
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "OwnBitly API"));
-            app.UseMvc();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
