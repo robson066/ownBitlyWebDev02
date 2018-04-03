@@ -2747,6 +2747,18 @@
           "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
         }
       },
+      "Pioneer.Pagination/2.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Razor.Runtime": "2.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Pioneer.Pagination.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Pioneer.Pagination.dll": {}
+        }
+      },
       "Remotion.Linq/2.1.1": {
         "type": "package",
         "dependencies": {
@@ -7643,6 +7655,16 @@
         "lib/netstandard1.3/Newtonsoft.Json.Bson.xml",
         "newtonsoft.json.bson.1.0.1.nupkg.sha512",
         "newtonsoft.json.bson.nuspec"
+      ]
+    },
+    "Pioneer.Pagination/2.1.0": {
+      "sha512": "xzbpYXxPI4PjFfMK27v//QuhbJe/nqP0huiiOHTSvAOmCAxYbw2wJMOy5VbIj9BhRxc3j0yvZFPhaI15m785Fw==",
+      "type": "package",
+      "path": "pioneer.pagination/2.1.0",
+      "files": [
+        "lib/netstandard2.0/Pioneer.Pagination.dll",
+        "pioneer.pagination.2.1.0.nupkg.sha512",
+        "pioneer.pagination.nuspec"
       ]
     },
     "Remotion.Linq/2.1.1": {
@@ -12670,6 +12692,7 @@
       "Microsoft.AspNetCore.All >= 2.0.5",
       "Microsoft.EntityFrameworkCore.Sqlite >= 2.0.2",
       "Microsoft.NETCore.App >= 2.0.0",
+      "Pioneer.Pagination >= 2.1.0",
       "Swashbuckle.AspNetCore >= 2.2.0"
     ]
   },
@@ -12728,6 +12751,10 @@
             "target": "Package",
             "version": "[2.0.0, )",
             "autoReferenced": true
+          },
+          "Pioneer.Pagination": {
+            "target": "Package",
+            "version": "[2.1.0, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",

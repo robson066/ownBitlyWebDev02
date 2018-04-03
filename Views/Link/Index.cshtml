@@ -1,4 +1,6 @@
 @model List<WebDevHomework.Models.Link>
+@addTagHelper *, Pioneer.Pagination
+
 <div>
     <div>
         @using (Html.BeginForm("Create", "Link", FormMethod.Post))
@@ -27,5 +29,7 @@
                 </tr>
             }
         </table>
-    </div>
+    </div>        
 </div>  
+
+<pioneer-pagination info="@ViewBag.PaginatedMeta" route="/links"></pioneer-pagination>    

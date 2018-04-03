@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "0bacc9440933fd659837f472ca16f28e6b834b84"
+    "signature": "3ab56489961ddb020854fc26a5579f6bb2bcc7a3"
   },
   "compilationOptions": {
     "defines": [
@@ -27,6 +27,7 @@
           "Microsoft.AspNetCore.All": "2.0.5",
           "Microsoft.EntityFrameworkCore.Sqlite": "2.0.2",
           "Microsoft.NETCore.App": "2.0.0",
+          "Pioneer.Pagination": "2.1.0",
           "Swashbuckle.AspNetCore": "2.2.0"
         },
         "runtime": {
@@ -2377,6 +2378,17 @@
         },
         "compile": {
           "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
+        }
+      },
+      "Pioneer.Pagination/2.1.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Razor.Runtime": "2.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Pioneer.Pagination.dll": {}
+        },
+        "compile": {
+          "lib/netstandard2.0/Pioneer.Pagination.dll": {}
         }
       },
       "Remotion.Linq/2.1.1": {
@@ -5204,6 +5216,13 @@
       "sha512": "sha512-5PYT/IqQ+UK31AmZiSS102R6EsTo+LGTSI8bp7WAUqDKaF4wHXD8U9u4WxTI1vc64tYi++8p3dk3WWNqPFgldw==",
       "path": "newtonsoft.json.bson/1.0.1",
       "hashPath": "newtonsoft.json.bson.1.0.1.nupkg.sha512"
+    },
+    "Pioneer.Pagination/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xzbpYXxPI4PjFfMK27v//QuhbJe/nqP0huiiOHTSvAOmCAxYbw2wJMOy5VbIj9BhRxc3j0yvZFPhaI15m785Fw==",
+      "path": "pioneer.pagination/2.1.0",
+      "hashPath": "pioneer.pagination.2.1.0.nupkg.sha512"
     },
     "Remotion.Linq/2.1.1": {
       "type": "package",

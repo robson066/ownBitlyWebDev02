@@ -6,6 +6,7 @@ using WebDevHomework.Models;
 
 namespace WebDevHomework.Controllers
 {
+    [Produces("application/json")]
     public class LinkAPIController : Controller
     {
         private readonly ILinkWriter _linkWriter;
@@ -18,14 +19,14 @@ namespace WebDevHomework.Controllers
         }
 
         //GET api/links/{id}
-        [HttpGet]
+        [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
             return Ok(_linkReader.Get(id));
         }
 
         //GET api/links/?search={string}&page={int}
-        [HttpGet]
+        [HttpGet("{request}")]
         public IActionResult Get([FromQuery]GetLinkRequest request)
         {
             var (links, count) = _linkReader
@@ -43,7 +44,7 @@ namespace WebDevHomework.Controllers
         }
 
         //DELETE api/links/{id}
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             _linkWriter.Delete(id);
@@ -51,14 +52,14 @@ namespace WebDevHomework.Controllers
         }
 
         //POST api/links
-        [HttpPost]
+        [HttpPost("{createLink}")]
         public IActionResult Post([FromBody]CreateLinkRequest createLink)
         {
             return Ok(_linkWriter.Create(createLink.GetLink()));
         }
 
         //POST api/links
-        [HttpPut]
+        [HttpPut("{link}")]
         public IActionResult Put([FromBody]Link link)
         {
             return Ok(_linkWriter.Update(link));
