@@ -1,4 +1,5 @@
 using System.Linq;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebDev02_Homework.Models;
 using WebDevHomework.Interfaces;
@@ -11,20 +12,24 @@ namespace WebDevHomework.Controllers
     {
         private readonly ILinkWriter _linkWriter;
         private readonly ILinkReader _linkReader;
-        private int itemsToSkip = 0;
+        private IHttpContextAccessor _accessor;
+        private int itemsToSkip = 20;
         private string search = null;
-        public LinkController(ILinkReader linkReader, ILinkWriter linkWriter)
+        public LinkController(ILinkReader linkReader, ILinkWriter linkWriter, IHttpContextAccessor accessor)
         {
             _linkReader = linkReader;
             _linkWriter = linkWriter;
+            WriteIpAddress(accessor);
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(int? page = 1)
         {
-            var pageInfo = _linkReader.Get(search, itemsToSkip);
+            var pageValue = page == null ? 1 : page.Value;
+            var pageInfo = _linkReader.Get(search, (pageValue - 1)*itemsToSkip);
             var links = pageInfo.Item1.ToList();
             var linksCount = pageInfo.Item2;
+            ViewBag.LinksCount = linksCount;
             return View(links);
         }
 
@@ -40,6 +45,13 @@ namespace WebDevHomework.Controllers
         {
             _linkWriter.Delete(linkId);
             return RedirectToAction("Index");
+        }
+
+        private void WriteIpAddress(IHttpContextAccessor accessor)
+        {
+            _accessor = accessor;
+            _accessor.HttpContext.Connection.RemoteIpAddress.ToString();
+            // some methods to save on db
         }
     }
 }

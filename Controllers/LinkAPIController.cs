@@ -6,7 +6,8 @@ using WebDevHomework.Models;
 
 namespace WebDevHomework.Controllers
 {
-    [Produces("application/json")]
+    //[Produces("application/json")]
+    [Route("api/links")]
     public class LinkAPIController : Controller
     {
         private readonly ILinkWriter _linkWriter;
@@ -18,15 +19,16 @@ namespace WebDevHomework.Controllers
             _linkWriter = linkWriter;
         }
 
-        //GET api/links/{id}
-        [HttpGet("links/{id}")]
-        public IActionResult Get(int id)
-        {
-            return Ok(_linkReader.Get(id));
-        }
+        // //GET api/links/{id}
+        // [HttpGet("{page}")]
+        // public IActionResult Index(int page)
+        // {
+        //     var result = _linkReader.Get(page);
+        //     return Ok(result);
+        // }
 
         //GET api/links/?search={string}&page={int}
-        [HttpGet("links/{request}")]
+        [HttpGet]
         public IActionResult Get([FromQuery]GetLinkRequest request)
         {
             var (links, count) = _linkReader
@@ -44,7 +46,7 @@ namespace WebDevHomework.Controllers
         }
 
         //DELETE api/links/{id}
-        [HttpDelete("links/{id}")]
+        [HttpDelete]
         public IActionResult Delete(int id)
         {
             _linkWriter.Delete(id);
@@ -52,14 +54,14 @@ namespace WebDevHomework.Controllers
         }
 
         //POST api/links
-        [HttpPost("links/{createLink}")]
+        [HttpPost]
         public IActionResult Post([FromBody]CreateLinkRequest createLink)
         {
             return Ok(_linkWriter.Create(createLink.GetLink()));
         }
 
         //POST api/links
-        [HttpPut("links/{link}")]
+        [HttpPut]
         public IActionResult Put([FromBody]Link link)
         {
             return Ok(_linkWriter.Update(link));

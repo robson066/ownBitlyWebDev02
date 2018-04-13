@@ -1,4 +1,5 @@
 @model List<WebDevHomework.Models.Link>
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
 <div>
     <div>
@@ -28,5 +29,13 @@
                 </tr>
             }
         </table>
-    </div>        
+    </div>
+        @for(int i=0; i <= ViewBag.LinksCount; i+=20)
+        {
+            var pageNumber = (i/20) + 1;
+
+            @Html.ActionLink("| Page " + pageNumber, "Index", "Link", new {page = pageNumber})      
+        }
+    </div>
+    Client IP: @HttpContextAccessor.HttpContext.Connection.RemoteIpAddress.ToString()
 </div>      
