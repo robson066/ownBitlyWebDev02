@@ -45,6 +45,18 @@ namespace WebDevHomework
             services.AddMvcCore().AddApiExplorer();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllHeaders",
+                        builder =>
+                    {
+                            builder.AllowAnyOrigin()
+                                .AllowAnyHeader()
+                                .AllowAnyMethod();
+                        });
+            });            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,7 +69,7 @@ namespace WebDevHomework
 
             app.UseSwagger();            
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "OwnBitly API"));
-
+            app.UseCors("AllowAllHeaders");
             app.UseStaticFiles();            
             app.UseMvc(routes =>
             {

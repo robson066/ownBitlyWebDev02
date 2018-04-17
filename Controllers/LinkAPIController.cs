@@ -6,7 +6,6 @@ using WebDevHomework.Models;
 
 namespace WebDevHomework.Controllers
 {
-    //[Produces("application/json")]
     [Route("api/links")]
     public class LinkAPIController : Controller
     {
@@ -18,14 +17,6 @@ namespace WebDevHomework.Controllers
             _linkReader = linkReader;
             _linkWriter = linkWriter;
         }
-
-        // //GET api/links/{id}
-        // [HttpGet("{page}")]
-        // public IActionResult Index(int page)
-        // {
-        //     var result = _linkReader.Get(page);
-        //     return Ok(result);
-        // }
 
         //GET api/links/?search={string}&page={int}
         [HttpGet]
