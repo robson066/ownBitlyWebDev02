@@ -18,7 +18,12 @@ namespace WebDevHomework.Controllers
             _linkWriter = linkWriter;
         }
 
-        //GET api/links/?search={string}&page={int}
+        [HttpOptions]
+        public IActionResult Options()
+        {
+            return Ok();
+        }
+
         [HttpGet]
         public IActionResult Get([FromQuery]GetLinkRequest request)
         {
@@ -36,24 +41,35 @@ namespace WebDevHomework.Controllers
             return Ok(result);
         }
 
-        //DELETE api/links/{id}
+        [Route("{id}")]
+        [HttpGet]
+        public IActionResult GetSingleLink(int id) 
+        {
+            return Ok(_linkReader.Get(id));
+        }
+
         [HttpDelete]
         public IActionResult Delete(int id)
         {
             _linkWriter.Delete(id);
+            return new NoContentResult();
+        }
+
+        [Route("{id}")]
+        [HttpOptions]
+        public IActionResult GetSingleLinkOptions() 
+        {
             return Ok();
         }
 
-        //POST api/links
         [HttpPost]
-        public IActionResult Post([FromBody]CreateLinkRequest createLink)
+        public IActionResult EditLink([FromBody]CreateLinkRequest createLink)
         {
             return Ok(_linkWriter.Create(createLink.GetLink()));
         }
 
-        //POST api/links
         [HttpPut]
-        public IActionResult Put([FromBody]Link link)
+        public IActionResult Create([FromBody]Link link)
         {
             return Ok(_linkWriter.Update(link));
         }
